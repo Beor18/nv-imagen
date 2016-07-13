@@ -1,0 +1,110 @@
+var MEME_SETTINGS = {
+
+  aspectRatio: '970x545',
+  aspectRatioOpts: [
+    {text: 'Nuestras Voces [970x545px]', value: '970x545', selected:"selected"}, 
+    {text: 'Instagram [510x510px]', value: '510x510'},
+    {text: 'Twitter [506x253px]', value: '506x253'}
+  ],
+  
+  backgroundOpt: '',
+  backgroundOpts: [
+    {text: 'Rojo NV', value: '<%= asset_data_uri("backgrounds/tn-red.png") %>'}, 
+    {text: 'Azul NV', value: '<%= asset_data_uri("backgrounds/tn-blue.png") %>'},
+    {text: 'Hormigon', value: '<%= asset_data_uri("backgrounds/concrete.png") %>'},
+    {text: 'Trama', value: '<%= asset_data_uri("backgrounds/tweed.png") %>'}
+  ],
+ 
+  creditText: 'Fuente:', // Default "credits" text.
+  creditSize: 12, // Font size for credit text.
+  
+  downloadName: 'meme', // The name of the downloaded image file (will have a ".png" extension added).
+  
+  emojiImage: '<%= asset_data_uri("emojis/emojis-canvas.png") %>',
+  emojiPosition: 1,
+  emojiOpts: [
+    {text: 'Izquierda abajo', value: 3, disabled:true},
+    {text: 'Izquierda arriba', value: 0, disabled:true},
+    {text: 'Derecha abajo', value: 2, disabled:true},
+    {text: 'Derecha arriba', value: 1, selected:true}
+  ],  
+  emojiSize: '100',
+  emojiMaxWidthRatio: 0.12,
+      
+  fontColor: 'white', // Universal font color.
+
+  // Universal font family for texts:
+  // Note that you'll need to included quoted font names as you would in CSS, ie: '"Knockout 28 B"'.
+  fontFamily: 'museo-sans-900',
+  // Font family options: set to empty array to disable font selector.
+  // These options may also be formatted as {text:'Knockout', value:'"Knockout 28 B"'}.
+  fontFamilyOpts: [
+    {text: 'Blokletters Viltstift', value: 'blokletters_viltstifviltstift'},
+    {text: 'Impact', value: 'Impact'},
+    {text: 'Museo Normal', value: 'museo-300'},
+    {text: 'Museo Negrita', value: 'museo-700'},
+    {text: 'Museo Sans Normal', value: 'museo-sans-300'},
+    {text: 'Museo Sans Negrita', value: 'museo-sans-900', selected:true},
+  ],
+  
+  //['Arial', 'Blokletters Viltstift', 'Comic Sans MS', 'Helvetica Neue', 'Museo Sans 300', 'Museo Sans 700',],
+  
+  // Font size of main headline:
+  fontSize: 48,
+  // Font size options: set to empty array to disable font-size selector.
+  fontSizeOpts: [
+    {text: 'Chica', value: 36},
+    {text: 'Mediana', value: 48, selected:true},
+    {text: 'Grande', value: 60}
+  ],
+
+  headlineText: 'Escribe el titular', // Default headline text.
+  height: 545, // Canvas rendering height.
+  imageScale: 1, // Background image scale.
+  imageSrc: '', // Default background image path. MUST reside on host domain, or use base64 data.
+  overlayAlpha: 0.5, // Opacity of image overlay.
+
+  // Image overlay color, or blank ('') for no overlay:
+  overlayColor: '',
+  // Overlay color options: set to empty array to disable overlay options selector.
+  //overlayColorOpts: ['#970018', '#e00038','#e84e1b','#ed7511','#f3c423','#9cc43f','#75932f','#007f76','#6ac0c2','#04b1ff','#0073a4','#2b406b','#6b2449','#d64892','#2d2d2d','#7b7b7b','#ffffff'],
+  paddingRatio: 0.05, // Percentage of canvas width to use as edge padding.
+  
+  ribbonOpts: [
+    {text: 'Vivir Bien', value:'rgba(224, 9, 35, .5)'},
+    {text: 'A vos te creo', value:'rgba(50, 145, 97, .8)'},
+    {text: 'La Trama', value:'rgba(188, 205, 231, .8)'},
+    {text: 'Tu Voz', value:'rgba(143, 159, 46, .8)'},
+    {text: 'Entendiendo la  Noticia', value:'rgba(235, 108, 9, .8)'},
+    {text: 'EL Salòn', value:'rgba(253, 201, 14, .8)'}
+  ],
+  
+  // Text alignment: valid settings are "left", "center", and "right".
+  textAlign: 'left',
+  // Text alignment options: set to empty array to disable alignment picker.
+  textAlignOpts: [
+    {text: 'Izquierda', value: 'left', selected:true}, 
+    {text: 'Centro', value: 'center'},
+    {text: 'Derecha', value: 'right'}
+  ],
+
+  textShadow: false, // Text shadow toggle.
+  textShadowEdit: true, // Toggles text shadow control within the editor.
+  
+  watermarkAlpha: 1, // Opacity of watermark image.
+  watermarkMaxWidthRatio: 0.15, // Maximum allowed width of watermark (percentage of total canvas width).
+
+  // Path to the watermark image source, or blank for no watermark:
+  // Alternatively, use  to populate the watermark with base64 data, avoiding Cross-Origin issues.
+  watermarkSrc: (localStorage && localStorage.getItem('meme_watermark')) || '<%= image_path("watermarks/todonoticias.png") %>',
+  
+  // Watermark image options: set to empty array to disable watermark picker.
+  // NOTE: only populate the "data" attributes with base64 data when concerned about Cross-Origin requests...
+  // Otherwise, just leave "data" attributes blank and allow images to load from your server.
+  watermarkOpts: [
+    {text: 'Nuestras Voces', value: '<%= asset_data_uri("watermarks/todonoticias.png") %>', selected:true},
+        
+  ],
+
+  width: 970 // Canvas rendering width.
+};
